@@ -1,6 +1,8 @@
 package org.launchcode.techjobs.oo;
 
-import java.util.Objects;
+import java.lang.reflect.Array;
+import java.lang.reflect.Field;
+import java.util.*;
 
 public class Job {
 
@@ -56,8 +58,7 @@ public class Job {
     }
 
     public PositionType getPositionType() {
-        return positionType;
-    }
+        return positionType;    }
 
     public void setPositionType(PositionType positionType) {
         this.positionType = positionType;
@@ -94,4 +95,37 @@ public class Job {
 
     // TODO: Add getters for each field EXCEPT nextId. Add setters for each field EXCEPT nextID
     //  and id.
+
+    @Override
+    public String toString() {
+        String finalString = System.lineSeparator();
+
+        LinkedHashMap<String, String> properties = new LinkedHashMap<>();
+        properties.put("ID", String.valueOf(id));
+        properties.put("Name", name);
+        properties.put("Employer", employer.getValue());
+        properties.put("Location", location.getValue());
+        properties.put("Position Type", positionType.getValue());
+        properties.put("Core Competency", coreCompetency.getValue());
+
+        for (Map.Entry<String, String> property : properties.entrySet()) {
+            finalString += property.getKey() + ": ";
+            if (property.getValue().isEmpty()) {
+                finalString += "Data not available";
+            } else {
+                finalString += property.getValue();
+            }
+            finalString += System.lineSeparator();
+        }
+
+        return finalString;
+//        return System.lineSeparator() +
+//                "ID: " + id + "\n" +
+//                "Name: " + name + "\n" +
+//                "Employer: " + employer.getValue() + "\n" +
+//                "Location: " + location.getValue() + "\n" +
+//                "Position Type: " + positionType.getValue() + "\n" +
+//                "Core Competency: " + coreCompetency.getValue() +
+//                System.lineSeparator();
+    }
 }
