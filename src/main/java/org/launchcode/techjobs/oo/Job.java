@@ -119,13 +119,5 @@ public class Job {
         }
 
         return finalString;
-//        return System.lineSeparator() +
-//                "ID: " + id + "\n" +
-//                "Name: " + name + "\n" +
-//                "Employer: " + employer.getValue() + "\n" +
-//                "Location: " + location.getValue() + "\n" +
-//                "Position Type: " + positionType.getValue() + "\n" +
-//                "Core Competency: " + coreCompetency.getValue() +
-//                System.lineSeparator();
     }
 }
